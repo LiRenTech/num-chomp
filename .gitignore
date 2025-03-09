@@ -1,0 +1,14 @@
+# Godot 4+ specific ignores
+.godot/
+# 资源导入后的缓存（必须忽略！）
+.import/
+# 旧版导出配置（Godot 3.x）
+export.cfg
+# 包含导出密钥等敏感信息（建议忽略！）
+export_presets.cfg
+
+dist/
+
+*.tmp
+
+.vscode/
