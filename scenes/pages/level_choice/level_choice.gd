@@ -4,6 +4,8 @@ extends Node2D
 func _ready() -> void:
 	if LevelSystem.current_max_level < 2:
 		$L2.disabled = true
+	if LevelSystem.current_max_level < 3:
+		$L3.disabled = true
 	pass # Replace with function body.
 
 
@@ -21,3 +23,8 @@ func _on_l_2_pressed() -> void:
 
 func _on_l_3_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/pages/game/level_3/level_3.tscn")
+
+
+func _on_l_4_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/pages/game/level_4/level_4.tscn")
+	pass # Replace with function body.

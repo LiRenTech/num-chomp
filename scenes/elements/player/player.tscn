@@ -11,7 +11,7 @@ outline_size = 6
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yqlae"]
-size = Vector2(21, 20)
+size = Vector2(5, 4)
 
 [node name="Player" type="CharacterBody2D" groups=["player_group"]]
 position = Vector2(500, 250)

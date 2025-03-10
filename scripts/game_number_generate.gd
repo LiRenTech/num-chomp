@@ -43,3 +43,10 @@ func get_enemy_number_covered_string_by_times(enemy_number: int) -> String:
 			B = b
 			break
 	return str(A) + "x" + str(B)
+
+func get_enemy_number_covered_string_by_div(enemy_number: int) -> String:
+	"""通过简单的除法伪装自己"""
+	var rate = randi_range(2, 9)
+	var a = enemy_number * rate
+	var b = rate
+	return str(a) + "÷" + str(b)
