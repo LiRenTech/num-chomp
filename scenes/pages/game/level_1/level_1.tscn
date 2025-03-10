@@ -1,33 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://phx7teywlmfk"]
+[gd_scene load_steps=4 format=3 uid="uid://phx7teywlmfk"]
 
 [ext_resource type="Script" path="res://scenes/pages/game/level_1/level_1.gd" id="1_c7g7b"]
-[ext_resource type="Script" path="res://scenes/pages/game/level_1/player.gd" id="2_n2nyj"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_j5ue5"]
-size = Vector2(21, 20)
-
-[sub_resource type="LabelSettings" id="LabelSettings_ywjrq"]
-font_size = 15
-outline_size = 6
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yqlae"]
-size = Vector2(21, 20)
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4lyv5"]
-normal = Vector2(0, 1)
-distance = 1.0
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ivogs"]
-distance = -646.0
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_shwy6"]
-normal = Vector2(1, 0)
-distance = -61.248
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_v36wl"]
-normal = Vector2(-1, 0)
-distance = -66.0
+[ext_resource type="PackedScene" uid="uid://bag501j6ihnes" path="res://scenes/elements/player/player.tscn" id="2_vqgs3"]
+[ext_resource type="PackedScene" uid="uid://loqgl8q3il2v" path="res://scenes/elements/boundary_wall/boundary_wall.tscn" id="3_rj50o"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_c7g7b")
@@ -38,59 +13,9 @@ offset_bottom = 646.0
 color = Color(0.099986, 0.099986, 0.099986, 1)
 metadata/_edit_lock_ = true
 
-[node name="Player" type="CharacterBody2D" parent="." groups=["player_group"]]
-position = Vector2(500, 250)
-script = ExtResource("2_n2nyj")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(-0.5, 2)
-shape = SubResource("RectangleShape2D_j5ue5")
-
-[node name="Number" type="Label" parent="Player"]
-texture_filter = 1
-offset_left = -23.0
-offset_top = -20.0
-offset_right = 21.0
-offset_bottom = 22.0
-text = "5"
-label_settings = SubResource("LabelSettings_ywjrq")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="GetHurtArea" type="Area2D" parent="Player"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/GetHurtArea"]
-position = Vector2(-0.5, 2)
-shape = SubResource("RectangleShape2D_yqlae")
+[node name="Player" parent="." instance=ExtResource("2_vqgs3")]
 
 [node name="CenterLocation" type="Marker2D" parent="."]
 position = Vector2(598, 303)
 
-[node name="Wall" type="Node2D" parent="."]
-
-[node name="TopWall" type="StaticBody2D" parent="Wall" groups=["wall_group"]]
-position = Vector2(466, -35)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/TopWall"]
-position = Vector2(123, -33)
-shape = SubResource("WorldBoundaryShape2D_4lyv5")
-
-[node name="BottomWall" type="StaticBody2D" parent="Wall" groups=["wall_group"]]
-position = Vector2(593, 85)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/BottomWall"]
-shape = SubResource("WorldBoundaryShape2D_ivogs")
-
-[node name="LeftWall" type="StaticBody2D" parent="Wall" groups=["wall_group"]]
-position = Vector2(-34, 263)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/LeftWall"]
-shape = SubResource("WorldBoundaryShape2D_shwy6")
-
-[node name="RightWall" type="StaticBody2D" parent="Wall" groups=["wall_group"]]
-position = Vector2(1209, 300)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/RightWall"]
-shape = SubResource("WorldBoundaryShape2D_v36wl")
-
-[connection signal="area_entered" from="Player/GetHurtArea" to="Player" method="_on_get_hurt_area_area_entered"]
+[node name="BoundaryWall" parent="." instance=ExtResource("3_rj50o")]

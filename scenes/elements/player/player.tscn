@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://bag501j6ihnes"]
+
+[ext_resource type="Script" path="res://scenes/elements/player/player.gd" id="1_lsoi6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j5ue5"]
+size = Vector2(21, 20)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ywjrq"]
+font_size = 15
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yqlae"]
+size = Vector2(21, 20)
+
+[node name="Player" type="CharacterBody2D" groups=["player_group"]]
+position = Vector2(500, 250)
+script = ExtResource("1_lsoi6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 2)
+shape = SubResource("RectangleShape2D_j5ue5")
+
+[node name="Number" type="Label" parent="."]
+texture_filter = 1
+offset_left = -23.0
+offset_top = -20.0
+offset_right = 21.0
+offset_bottom = 22.0
+text = "5"
+label_settings = SubResource("LabelSettings_ywjrq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GetHurtArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GetHurtArea"]
+position = Vector2(-0.5, 2)
+shape = SubResource("RectangleShape2D_yqlae")
+
+[connection signal="area_entered" from="GetHurtArea" to="." method="_on_get_hurt_area_area_entered"]
