@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://phx7teywlmfk"]
+[gd_scene load_steps=10 format=3 uid="uid://phx7teywlmfk"]
 
 [ext_resource type="Script" path="res://scenes/pages/game/level_1/level_1.gd" id="1_c7g7b"]
 [ext_resource type="Script" path="res://scenes/pages/game/level_1/player.gd" id="2_n2nyj"]
@@ -28,12 +28,6 @@ distance = -61.248
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_v36wl"]
 normal = Vector2(-1, 0)
 distance = -66.0
-
-[sub_resource type="LabelSettings" id="LabelSettings_sorj1"]
-font_size = 60
-
-[sub_resource type="LabelSettings" id="LabelSettings_4m3v0"]
-font_size = 60
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_c7g7b")
@@ -99,45 +93,4 @@ position = Vector2(1209, 300)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/RightWall"]
 shape = SubResource("WorldBoundaryShape2D_v36wl")
 
-[node name="GameOver" type="Node2D" parent="."]
-visible = false
-
-[node name="Label" type="Label" parent="GameOver"]
-offset_left = 416.0
-offset_top = 68.0
-offset_right = 773.0
-offset_bottom = 157.0
-text = "Game Over"
-label_settings = SubResource("LabelSettings_sorj1")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="BackToHomeButton" type="Button" parent="GameOver"]
-offset_left = 520.0
-offset_top = 323.0
-offset_right = 675.0
-offset_bottom = 368.0
-text = "Back To Home"
-
-[node name="Win" type="Node2D" parent="."]
-
-[node name="BackToHomeButton2" type="Button" parent="Win"]
-offset_left = 520.0
-offset_top = 323.0
-offset_right = 675.0
-offset_bottom = 368.0
-text = "Back To Home"
-
-[node name="Label" type="Label" parent="Win"]
-offset_left = 385.0
-offset_top = 63.0
-offset_right = 796.0
-offset_bottom = 169.0
-text = "You Win"
-label_settings = SubResource("LabelSettings_4m3v0")
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [connection signal="area_entered" from="Player/GetHurtArea" to="Player" method="_on_get_hurt_area_area_entered"]
-[connection signal="pressed" from="GameOver/BackToHomeButton" to="." method="_on_back_to_home_button_pressed"]
-[connection signal="pressed" from="Win/BackToHomeButton2" to="." method="_on_back_to_home_button_pressed"]

@@ -1,12 +1,26 @@
 extends Node2D
 
 var enemy_number = preload("res://scenes/elements/enemy_number/enemy_number.tscn")
+var result_panel_scene = preload("res://scenes/components/result_panel/result_panel.tscn")
+var win_result_panel: ResultPanel
+var fail_result_panel: ResultPanel
+
+var win_result
 const TARGET = 50000
+const GENERATE_RATE_PER_TICK = 0.1
 
 func _ready() -> void:
+	win_result_panel = result_panel_scene.instantiate()
+	win_result_panel.set_content("you win!", "celebrate!")
+	win_result_panel.retry_pressed_signal.connect(_on_back_to_home_button_pressed)
+	add_child(win_result_panel)
+	
+	fail_result_panel = result_panel_scene.instantiate()
+	fail_result_panel.set_content("you lose", "you lose the game")
+	fail_result_panel.retry_pressed_signal.connect(_on_back_to_home_button_pressed)
+	add_child(fail_result_panel)
+	
 	$Player.position = $CenterLocation.position
-	$GameOver.visible = false
-	$Win.visible = false
 	$Player.visible = true
 	pass
 
@@ -15,24 +29,22 @@ func _physics_process(delta: float) -> void:
 	if $Player.is_alive:
 		if $Player.get_number() > TARGET:
 			# 赢了
-			$Win.visible = true
-			$Player.visible = false
-			var enemies = get_tree().get_nodes_in_group("enemy_group")
-			for enemy in enemies:
-				enemy.queue_free()
+			win_result_panel.checkout_visible(true)
+			clear_enemy()
 		else:
 			# 还没赢
-			if randf() < 0.1:
+			if randf() < GENERATE_RATE_PER_TICK:
 				generate_number()
 	else:
 		# 游戏结束了
-		$GameOver.visible = true
+		fail_result_panel.checkout_visible(true)
 		$Player.visible = false
-		var enemies = get_tree().get_nodes_in_group("enemy_group")
-		for enemy in enemies:
-			enemy.queue_free()
-		pass
-	pass
+		clear_enemy()
+
+func clear_enemy():
+	var enemies = get_tree().get_nodes_in_group("enemy_group")
+	for enemy in enemies:
+		enemy.queue_free()
 
 func get_player_number():
 	return $Player.get_number()
