@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bnyqmstbb2oti"]
+[gd_scene load_steps=6 format=3 uid="uid://bnyqmstbb2oti"]
 
 [ext_resource type="Script" path="res://scenes/pages/main/main.gd" id="1_cd6uh"]
 [ext_resource type="Script" path="res://scenes/pages/main/start.gd" id="1_h5dna"]
@@ -6,6 +6,10 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_mxio4"]
 font_size = 60
+
+[sub_resource type="LabelSettings" id="LabelSettings_80er8"]
+font_size = 12
+font_color = Color(1, 1, 1, 0.596078)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_cd6uh")
@@ -27,12 +31,16 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Author" type="Label" parent="."]
-offset_left = 1007.0
-offset_top = 579.0
-offset_right = 1119.0
-offset_bottom = 637.0
-text = "by LirenTech
-2025.3"
+offset_left = 859.0
+offset_top = 578.0
+offset_right = 1132.0
+offset_bottom = 635.0
+text = "2025.3
+by LirenTech
+github.com/LiRenTech/num-chomp
+"
+label_settings = SubResource("LabelSettings_80er8")
+horizontal_alignment = 2
 
 [node name="Start" type="Button" parent="."]
 offset_left = 508.0
