@@ -18,6 +18,8 @@ config/features=PackedStringArray("4.3", "GL Compatibility")
 
 GetEdgePosition="*res://scripts/get_edge_position.gd"
 GameNumberGenerate="*res://scripts/game_number_generate.gd"
+LevelSystem="*res://scripts/level_system.gd"
+Test="*res://scripts/test.gd"
 
 [display]
 

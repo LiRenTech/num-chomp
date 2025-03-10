@@ -6,5 +6,5 @@ func _ready() -> void:
 	TARGET = 50000
 
 func win_hook():
-	print("win")
+	LevelSystem.player_win_level(1)
 	pass

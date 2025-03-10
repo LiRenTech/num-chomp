@@ -37,5 +37,13 @@ offset_right = 527.0
 offset_bottom = 238.0
 text = "L2"
 
+[node name="L3" type="Button" parent="."]
+offset_left = 587.0
+offset_top = 169.0
+offset_right = 663.0
+offset_bottom = 235.0
+text = "L3"
+
 [connection signal="pressed" from="L1" to="." method="_on_l_1_pressed"]
 [connection signal="pressed" from="L2" to="." method="_on_l_2_pressed"]
+[connection signal="pressed" from="L3" to="." method="_on_l_3_pressed"]

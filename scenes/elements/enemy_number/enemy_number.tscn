@@ -16,16 +16,17 @@ offset_left = -11.0
 offset_top = -11.0
 offset_right = 11.0
 offset_bottom = 11.0
-color = Color(0.121569, 0.121569, 0.121569, 0.807843)
+color = Color(1, 1, 1, 0.0666667)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("RectangleShape2D_uxp8b")
 
 [node name="VisibleNumber" type="Label" parent="."]
 texture_filter = 1
-offset_left = -13.0
+offset_left = -138.0
 offset_top = -12.0
-offset_right = 13.0
+offset_right = 138.0
 offset_bottom = 13.0
 text = "..."
 label_settings = SubResource("LabelSettings_xfycl")

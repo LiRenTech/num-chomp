@@ -29,3 +29,17 @@ func get_enemy_number_covered_string_by_subtract(enemy_number: int) -> String:
 	var a = randi_range(enemy_number * 2, enemy_number * 10)
 	var b = a - enemy_number
 	return str(a) + "-" + str(b)
+
+func get_enemy_number_covered_string_by_times(enemy_number: int) -> String:
+	"""通过乘法伪装自己"""
+	var A = 1
+	var B = enemy_number
+	var loop_end = int(sqrt(enemy_number) + 1)
+	for i in range(loop_end, 1, -1):
+		var a = i
+		var b = float(enemy_number) / a
+		if b == int(b):
+			A = a
+			B = b
+			break
+	return str(A) + "x" + str(B)

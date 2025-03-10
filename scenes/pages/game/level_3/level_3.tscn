@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://2ixnvsmy61c3"]
+
+[ext_resource type="Script" path="res://scenes/pages/game/level_3/level_3.gd" id="1_7uamc"]
+[ext_resource type="PackedScene" uid="uid://bag501j6ihnes" path="res://scenes/elements/player/player.tscn" id="1_c20ll"]
+[ext_resource type="PackedScene" uid="uid://loqgl8q3il2v" path="res://scenes/elements/boundary_wall/boundary_wall.tscn" id="2_eh2ke"]
+
+[node name="Level3" type="Node2D"]
+script = ExtResource("1_7uamc")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 650.0
+color = Color(0.108106, 0.1206, 0.131138, 1)
+
+[node name="Player" parent="." instance=ExtResource("1_c20ll")]
+
+[node name="BoundaryWall" parent="." instance=ExtResource("2_eh2ke")]
+
+[node name="CenterLocation" type="Marker2D" parent="."]
+position = Vector2(588, 279)
