@@ -43,6 +43,13 @@ func _ready() -> void:
 	$Player.visible = true
 	$Player.set_number(5)
 
+func _process(delta: float) -> void:
+	# 每一个块跟随鼠标距离远近而变化
+	var R = 200
+	var mouse_world = get_global_mouse_position()
+	for enemy in get_tree().get_nodes_in_group("enemy_group"):
+		var dis = (enemy.position - mouse_world).length()
+		enemy.update_alpha(max(-(0.2 / R) * dis + 0.2, 0))
 
 func _physics_process(delta: float) -> void:
 	check_game_state()

@@ -4,7 +4,9 @@ extends Area2D
 @export var velocity = Vector2.ZERO
 @export var number = 0
 
-# Called when the node enters the scene tree for the first time.
+# 白色底色最大就是（20/255）
+# 字体最浅不能超过阈值
+
 func _ready() -> void:
 	pass # Replace with function body.
 
@@ -15,9 +17,8 @@ func set_number(n: int):
 func set_ui_string(string: String):
 	$VisibleNumber.text = string
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func update_alpha(number: float):
+	$ColorRect.color.a = number
 
 func _physics_process(delta: float) -> void:
 	position += velocity * delta
