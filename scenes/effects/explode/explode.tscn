@@ -1,3 +1,51 @@
-[gd_scene format=3 uid="uid://bborwd7xscy5m"]
+[gd_scene load_steps=10 format=3 uid="uid://bborwd7xscy5m"]
+
+[ext_resource type="Script" path="res://scenes/effects/explode/explode.gd" id="1_i87qf"]
+[ext_resource type="Texture2D" uid="uid://b1cal0t4kijav" path="res://scenes/effects/explode/fire_particle.png" id="1_o746d"]
+
+[sub_resource type="Curve" id="Curve_vhdjr"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 109.039), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_8do37"]
+curve = SubResource("Curve_vhdjr")
+
+[sub_resource type="Gradient" id="Gradient_ad77t"]
+offsets = PackedFloat32Array(0, 0.0944742, 0.511586, 1)
+colors = PackedColorArray(0.580786, 0.576348, 0.571248, 1, 1, 1, 1, 0.737255, 0.572549, 0.54902, 0.529412, 0.717647, 1, 1, 1, 0.34902)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4vakk"]
+gradient = SubResource("Gradient_ad77t")
+
+[sub_resource type="Curve" id="Curve_3yiqo"]
+_data = [Vector2(0, 0.21915), 0.0, 0.0, 0, 0, Vector2(0.323102, 0.394443), 0.0, 0.0, 0, 0, Vector2(0.987076, 0.098747), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_pevct"]
+curve = SubResource("Curve_3yiqo")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hmyqv"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 4.58
+angular_velocity_curve = SubResource("CurveTexture_8do37")
+radial_velocity_min = -2.23517e-05
+radial_velocity_max = 69.67
+gravity = Vector3(0, -100, 0)
+radial_accel_min = -8.71
+radial_accel_max = 27.29
+scale_curve = SubResource("CurveTexture_pevct")
+color_ramp = SubResource("GradientTexture1D_4vakk")
 
 [node name="Explode" type="Node2D"]
+script = ExtResource("1_i87qf")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 32
+process_material = SubResource("ParticleProcessMaterial_hmyqv")
+texture = ExtResource("1_o746d")
+one_shot = true
+preprocess = 1.0

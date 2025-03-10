@@ -4,6 +4,8 @@ extends CharacterBody2D
 @export var number = 0
 @export var is_alive = true
 
+var explode_scene = preload("res://scenes/effects/explode/explode.tscn")
+
 func _ready() -> void:
 	set_number(5)
 	pass
@@ -30,10 +32,14 @@ func _on_get_hurt_area_area_entered(area: Area2D) -> void:
 			is_alive = false
 		elif enemy.number < number:
 			
-			
 			# 计算比率
 			var rate = float(enemy.number) / number
-			play_chomp_sound(rate + 1)
+			play_chomp_sound(rate + 0.5)
+			
+			# 添加爆炸特效
+			var explode = explode_scene.instantiate()
+			explode.position = position
+			get_tree().get_root().add_child(explode)
 			
 			number += enemy.number
 			update_ui()
