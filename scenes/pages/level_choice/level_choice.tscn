@@ -24,35 +24,55 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="L1" type="Button" parent="."]
-offset_left = 312.0
-offset_top = 173.0
-offset_right = 398.0
-offset_bottom = 247.0
-text = "L1"
+offset_left = 308.0
+offset_top = 176.0
+offset_right = 424.0
+offset_bottom = 252.0
+text = "L1
+原始数字海洋"
 
 [node name="L2" type="Button" parent="."]
-offset_left = 450.0
-offset_top = 175.0
-offset_right = 536.0
-offset_bottom = 245.0
-text = "L2"
+offset_left = 459.0
+offset_top = 176.0
+offset_right = 559.0
+offset_bottom = 250.0
+text = "L2
+加减运算丛林"
 
 [node name="L3" type="Button" parent="."]
-offset_left = 589.0
+offset_left = 595.0
 offset_top = 176.0
-offset_right = 665.0
-offset_bottom = 242.0
-text = "L3"
+offset_right = 702.0
+offset_bottom = 249.0
+text = "L3
+乘法沼泽"
 
 [node name="L4" type="Button" parent="."]
-offset_left = 735.0
-offset_top = 176.0
-offset_right = 800.0
-offset_bottom = 239.0
+offset_left = 736.0
+offset_top = 177.0
+offset_right = 849.0
+offset_bottom = 248.0
 text = "L4
-"
+除法潮汐"
+
+[node name="BackToHomeButton" type="Button" parent="."]
+offset_left = 55.0
+offset_top = 48.0
+offset_right = 200.0
+offset_bottom = 96.0
+text = "Back To Home"
+
+[node name="Tips" type="Label" parent="."]
+offset_left = 442.0
+offset_top = 336.0
+offset_right = 714.0
+offset_bottom = 409.0
+text = "过关条件：不断累加，将数值超过五万
+
+失败检测：触碰到比自己大的数字"
 
 [connection signal="pressed" from="L1" to="." method="_on_l_1_pressed"]
 [connection signal="pressed" from="L2" to="." method="_on_l_2_pressed"]
 [connection signal="pressed" from="L3" to="." method="_on_l_3_pressed"]
 [connection signal="pressed" from="L4" to="." method="_on_l_4_pressed"]
+[connection signal="pressed" from="BackToHomeButton" to="." method="_on_back_to_home_button_pressed"]

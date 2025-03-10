@@ -62,6 +62,7 @@ func _physics_process(delta: float) -> void:
 		if randf() < GENERATE_RATE_PER_TICK:
 			generate_number()
 	elif game_state == GameState.louse and last_tick_game_state == GameState.playing:
+		
 		fail_result_panel.checkout_visible(true)
 		$Player.visible = false
 		clear_enemy()

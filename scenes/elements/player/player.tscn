@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bag501j6ihnes"]
+[gd_scene load_steps=6 format=3 uid="uid://bag501j6ihnes"]
 
 [ext_resource type="Script" path="res://scenes/elements/player/player.gd" id="1_lsoi6"]
+[ext_resource type="AudioStream" uid="uid://tc02irg3h44n" path="res://assets/sounds/number_chomp.mp3" id="2_gry73"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j5ue5"]
 size = Vector2(21, 20)
@@ -37,5 +38,9 @@ vertical_alignment = 1
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GetHurtArea"]
 position = Vector2(-0.5, 2)
 shape = SubResource("RectangleShape2D_yqlae")
+
+[node name="Chomp" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_gry73")
+max_polyphony = 10
 
 [connection signal="area_entered" from="GetHurtArea" to="." method="_on_get_hurt_area_area_entered"]
