@@ -1,18 +1,30 @@
 extends LevelAbstract
+var black_screen_effect_scene = preload("res://scenes/effects/black_screen/black_screen.tscn")
+
 
 func _ready() -> void:
 	super._ready()
 	GENERATE_RATE_PER_TICK = 0.03
 	TARGET = 50000
 
+var end_black_screen
+
 func win_hook():
 	LevelSystem.player_win_level(4)
+	
+	end_black_screen = black_screen_effect_scene.instantiate()
+	add_child(end_black_screen)
 
 func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
+	# 潮汐
 	var t = float(Time.get_ticks_msec()) / (1000 * 20)
 	GENERATE_RATE_PER_TICK = min(0.4 * sin(t) ** 20 + 0.03, 1)
 	$ColorRect.color.a = GENERATE_RATE_PER_TICK
+	# 通关动画
+	if end_black_screen:
+		if end_black_screen.finished:
+			get_tree().change_scene_to_file("res://scenes/pages/author/author.tscn")
 
 func generate_number():
 	# 开始设定随机数字

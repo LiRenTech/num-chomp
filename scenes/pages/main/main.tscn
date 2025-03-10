@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bnyqmstbb2oti"]
+[gd_scene load_steps=5 format=3 uid="uid://bnyqmstbb2oti"]
 
 [ext_resource type="Script" path="res://scenes/pages/main/main.gd" id="1_cd6uh"]
 [ext_resource type="Script" path="res://scenes/pages/main/start.gd" id="1_h5dna"]
+[ext_resource type="Script" path="res://scenes/pages/main/author_button.gd" id="3_5j21y"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_mxio4"]
 font_size = 60
@@ -41,4 +42,13 @@ offset_bottom = 268.0
 text = "Start"
 script = ExtResource("1_h5dna")
 
+[node name="AuthorButton" type="Button" parent="."]
+offset_left = 508.0
+offset_top = 312.0
+offset_right = 672.0
+offset_bottom = 361.0
+text = "About"
+script = ExtResource("3_5j21y")
+
 [connection signal="pressed" from="Start" to="Start" method="_on_pressed"]
+[connection signal="pressed" from="AuthorButton" to="AuthorButton" method="_on_pressed"]

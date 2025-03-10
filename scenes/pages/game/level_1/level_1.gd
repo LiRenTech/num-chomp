@@ -7,4 +7,5 @@ func _ready() -> void:
 
 func win_hook():
 	LevelSystem.player_win_level(1)
+	win_result_panel.checkout_visible(true)
 	pass

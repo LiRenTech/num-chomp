@@ -9,6 +9,7 @@ func _ready() -> void:
 
 func win_hook():
 	LevelSystem.player_win_level(3)
+	win_result_panel.checkout_visible(true)
 
 
 func generate_number():

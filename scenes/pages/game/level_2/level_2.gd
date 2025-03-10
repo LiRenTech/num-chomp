@@ -8,6 +8,7 @@ func _ready() -> void:
 
 func win_hook():
 	LevelSystem.player_win_level(2)
+	win_result_panel.checkout_visible(true)
 
 func generate_number():
 	# 开始设定随机数字

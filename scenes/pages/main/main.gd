@@ -1,12 +1,9 @@
 extends Node2D
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	MusicController.play_home_music()
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+	if LevelSystem.current_max_level > 4:
+		$AuthorButton.visible = true
+	else:
+		$AuthorButton.visible = false

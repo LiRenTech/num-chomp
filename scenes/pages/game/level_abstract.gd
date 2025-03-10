@@ -54,8 +54,10 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	check_game_state()
 	if game_state == GameState.win and last_tick_game_state == GameState.playing:
+		# 检测是否是最后一关
+		
 		# 赢了
-		win_result_panel.checkout_visible(true)
+		
 		clear_enemy()
 		win_hook()
 	elif game_state == GameState.playing:
@@ -66,6 +68,10 @@ func _physics_process(delta: float) -> void:
 		fail_result_panel.checkout_visible(true)
 		$Player.visible = false
 		clear_enemy()
+	
+	# 作弊
+	if Input.is_action_just_pressed("F12"):
+		$Player.set_number(50001)
 
 
 func win_hook():

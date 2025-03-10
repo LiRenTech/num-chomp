@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://dixtpy5fmm8l5"]
+
+[ext_resource type="Script" path="res://scenes/pages/author/author.gd" id="1_2xmu6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_14sk3"]
+font_size = 20
+
+[node name="Author" type="Node2D"]
+script = ExtResource("1_2xmu6")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 647.0
+color = Color(0.0177324, 0.0177324, 0.0177324, 1)
+
+[node name="Content" type="Label" parent="."]
+offset_left = 178.0
+offset_top = 661.0
+offset_right = 981.0
+offset_bottom = 1303.0
+text = "【作者信息】
+⌨️ 抽象的设计：Littlefean （源自大鱼吃小鱼）
+💻 编程：Littlefean （GDScript）
+🎵 编曲作者：Littlefean （使用库乐队）
+
+【开发日志】
+⏳ 72小时极限开发
+🚀 用Godot引擎做的第三个Demo小游戏
+🧮 从数字深渊到乘除战场
+🐟 让数学恐惧症患者爱上吞噬
+
+【特别鸣谢】
+✨ 感谢你耐心解题并最终通关
+🌌 感谢每一只被吞噬的抽象小鱼
+☕ 致敬深夜调试时阵亡的咖啡（其实是酸奶）
+
+——
+当数字成为武器
+计算即是生存法则
+下次更新时...
+你会更强吗？"
+label_settings = SubResource("LabelSettings_14sk3")
+horizontal_alignment = 1
+
+[node name="BackButton" type="Button" parent="."]
+offset_left = 29.0
+offset_top = 28.0
+offset_right = 185.0
+offset_bottom = 76.0
+text = "Back To Home"
+
+[connection signal="pressed" from="BackButton" to="." method="_on_button_pressed"]
