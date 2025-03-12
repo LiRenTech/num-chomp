@@ -1,11 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://bvmbwgtyrurwg"]
+[gd_scene load_steps=5 format=3 uid="uid://bvmbwgtyrurwg"]
 
 [ext_resource type="Script" path="res://scenes/elements/enemy_number/enemy_number.gd" id="1_hn6lj"]
+[ext_resource type="FontFile" uid="uid://ca0coy5ar1nni" path="res://assets/fonts/AGENCYR.TTF" id="2_k3t2k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uxp8b"]
 size = Vector2(22, 22)
 
 [sub_resource type="LabelSettings" id="LabelSettings_xfycl"]
+font = ExtResource("2_k3t2k")
 font_size = 12
 
 [node name="EnemyNumber" type="Area2D"]

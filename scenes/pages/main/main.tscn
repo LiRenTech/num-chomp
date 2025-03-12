@@ -1,14 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://bnyqmstbb2oti"]
+[gd_scene load_steps=7 format=3 uid="uid://bnyqmstbb2oti"]
 
 [ext_resource type="Script" path="res://scenes/pages/main/main.gd" id="1_cd6uh"]
 [ext_resource type="Script" path="res://scenes/pages/main/start.gd" id="1_h5dna"]
+[ext_resource type="FontFile" uid="uid://ca0coy5ar1nni" path="res://assets/fonts/AGENCYR.TTF" id="2_ww5dx"]
 [ext_resource type="Script" path="res://scenes/pages/main/author_button.gd" id="3_5j21y"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_mxio4"]
+font = ExtResource("2_ww5dx")
 font_size = 60
 
 [sub_resource type="LabelSettings" id="LabelSettings_80er8"]
-font_size = 12
+font = ExtResource("2_ww5dx")
+font_size = 18
 font_color = Color(1, 1, 1, 0.596078)
 
 [node name="Main" type="Node2D"]
@@ -25,14 +28,14 @@ offset_left = 338.0
 offset_top = 49.0
 offset_right = 846.0
 offset_bottom = 132.0
-text = "NumChomp"
+text = "Num Chomp"
 label_settings = SubResource("LabelSettings_mxio4")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Author" type="Label" parent="."]
-offset_left = 859.0
-offset_top = 578.0
+offset_left = 802.0
+offset_top = 563.0
 offset_right = 1132.0
 offset_bottom = 635.0
 text = "2025.3

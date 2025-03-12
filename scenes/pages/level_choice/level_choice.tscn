@@ -1,9 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://bpse8gyw5nod3"]
+[gd_scene load_steps=5 format=3 uid="uid://bpse8gyw5nod3"]
 
 [ext_resource type="Script" path="res://scenes/pages/level_choice/level_choice.gd" id="1_0bfb8"]
+[ext_resource type="FontFile" uid="uid://ca0coy5ar1nni" path="res://assets/fonts/AGENCYR.TTF" id="2_gxhxb"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_m8ydo"]
+font = ExtResource("2_gxhxb")
 font_size = 60
+
+[sub_resource type="LabelSettings" id="LabelSettings_x0s4m"]
+font = ExtResource("2_gxhxb")
 
 [node name="LevelChoice" type="Node2D"]
 script = ExtResource("1_0bfb8")
@@ -70,6 +75,7 @@ offset_bottom = 409.0
 text = "过关条件：不断累加，将数值超过五万
 
 失败检测：触碰到比自己大的数字"
+label_settings = SubResource("LabelSettings_x0s4m")
 
 [connection signal="pressed" from="L1" to="." method="_on_l_1_pressed"]
 [connection signal="pressed" from="L2" to="." method="_on_l_2_pressed"]
