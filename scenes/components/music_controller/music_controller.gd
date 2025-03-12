@@ -18,3 +18,7 @@ func play_home_music():
 func play_game_music():
 	stop()
 	play("res://assets/music/game.mp3")
+
+func play_end_music():
+	stop()
+	play("res://assets/music/the_end.mp3")

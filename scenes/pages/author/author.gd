@@ -5,6 +5,7 @@ var content: Label
 func _ready() -> void:
 	content = $Content	
 	$BackButton.visible = false
+	MusicController.play_end_music()
 	pass # Replace with function body.
 
 
