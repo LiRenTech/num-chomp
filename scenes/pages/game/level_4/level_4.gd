@@ -19,7 +19,7 @@ func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
 	# 潮汐
 	var t = float(Time.get_ticks_msec()) / (1000 * 20)
-	GENERATE_RATE_PER_TICK = min(0.4 * sin(t) ** 20 + 0.03, 1)
+	GENERATE_RATE_PER_TICK = min(sin(t) ** 1000 + 0.03, 1)
 	$ColorRect.color.a = GENERATE_RATE_PER_TICK
 	# 通关动画
 	if end_black_screen:
